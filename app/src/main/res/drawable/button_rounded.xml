@@ -1,0 +1,11 @@
+<!-- res/drawable/button_rounded.xml -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Background color of the button -->
+    <solid android:color="@color/colorOnPrimaryDark"/>
+
+    <!-- Rounded corners -->
+    <corners android:radius="8dp"/>
+
+    <!-- Optional: Add a border if needed -->
+    <stroke android:color="#979595" android:width="1dp"/>
+</shape>

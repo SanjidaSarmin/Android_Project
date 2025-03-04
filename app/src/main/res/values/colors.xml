@@ -17,9 +17,25 @@
     <color name="input_bg">#E3F2FD</color>
     <color name="input_border">#90CAF9</color>
     <!-- Navigation Colors -->
-    <color name="nav_item_color">#3A6B9B</color> <!-- Change to your preferred color -->
+    <color name="nav_item_color">#2CA464</color>
     <color name="nav_background">#F8F9FA</color>
 
     <!-- Card Background -->
     <color name="card_background">#FFFFFF</color>
+    <color name="correctAnswerColor">#339936</color>
+    <color name="incorrectAnswerColor">#A92D25</color>
+
+    <color name="colorPrimary">#6200EE</color>
+    <color name="colorPrimaryVariant">#3700B3</color>
+    <color name="colorOnPrimary">#FFFFFF</color>
+
+    <!-- Dark Mode Colors -->
+    <color name="colorPrimaryDark">#121212</color>
+    <color name="colorOnPrimaryDark">#FFFFFF</color>
+    <color name="colorSecondaryDark">#03DAC6</color>
+
+    <!-- Text Colors -->
+    <color name="textPrimaryColor">#212121</color>
+    <color name="textSecondaryColor">#757575</color>
+    <color name="colorAccent">#03DAC5</color>
 </resources>

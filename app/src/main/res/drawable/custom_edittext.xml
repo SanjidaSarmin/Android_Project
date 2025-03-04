@@ -1,0 +1,19 @@
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Focused state (Yellow border) -->
+    <item android:state_focused="true">
+        <shape android:shape="rectangle">
+            <solid android:color="#FFFFFF"/> <!-- White background -->
+            <stroke android:width="2dp" android:color="#3AA1B1"/> <!-- Yellow border -->
+            <corners android:radius="5dp"/>
+        </shape>
+    </item>
+
+    <!-- Normal state (Gray border) -->
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="#FFFFFF"/>
+            <stroke android:width="2dp" android:color="#86AEC8"/> <!-- Gray border -->
+            <corners android:radius="5dp"/>
+        </shape>
+    </item>
+</selector>
