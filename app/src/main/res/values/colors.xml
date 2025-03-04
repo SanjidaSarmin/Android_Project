@@ -16,4 +16,10 @@
     <color name="button_bg">#1E88E5</color>
     <color name="input_bg">#E3F2FD</color>
     <color name="input_border">#90CAF9</color>
+    <!-- Navigation Colors -->
+    <color name="nav_item_color">#3A6B9B</color> <!-- Change to your preferred color -->
+    <color name="nav_background">#F8F9FA</color>
+
+    <!-- Card Background -->
+    <color name="card_background">#FFFFFF</color>
 </resources>
