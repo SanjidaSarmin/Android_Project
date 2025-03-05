@@ -83,8 +83,8 @@ public class Login extends AppCompatActivity {
 
             // Save login state in SharedPreferences
             SharedPreferences.Editor editor = sharedPreferences.edit();
-            editor.putString("username", email); // Save email as username
-            editor.putInt("isLogin", 1); // Mark as logged in
+            editor.putString("username", email);
+            editor.putInt("isLogin", 1);
             editor.apply();
 
             startActivity(new Intent(Login.this, Home.class));

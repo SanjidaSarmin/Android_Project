@@ -45,7 +45,8 @@ public class Home extends AppCompatActivity {
                     Toast.makeText(Home.this, "Home clicked", Toast.LENGTH_SHORT).show();
                     return true;
                 }else if (itemId == R.id.nav_search) {
-                    Toast.makeText(Home.this, "Search clicked", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Home.this, "List clicked", Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(Home.this, Quiz_List.class));
                     return true;
                 }else if (itemId == R.id.nav_add) {
                     Toast.makeText(Home.this, "Add clicked", Toast.LENGTH_SHORT).show();
@@ -57,6 +58,7 @@ public class Home extends AppCompatActivity {
                     return true;
                 } else if (itemId == R.id.nav_profile) {
                     Toast.makeText(Home.this, "Profile clicked", Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(Home.this, Profile.class));
                     return true;
                 }
                 return false;
