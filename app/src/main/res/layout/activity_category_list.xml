@@ -16,14 +16,15 @@
         android:textColor="@android:color/black"
         android:layout_gravity="center_horizontal"
         android:paddingBottom="10dp"
-        android:layout_marginTop="50dp"/>
+        android:layout_marginTop="100dp"
+        android:layout_marginBottom="30dp"/>
     <Button
         android:id="@+id/btnAddCategory"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Add Categories"
         android:layout_gravity="center_horizontal"
-        android:layout_marginBottom="20dp"/>
+        android:layout_marginBottom="50dp"/>
 
     <!-- ListView for displaying category list -->
     <ListView
