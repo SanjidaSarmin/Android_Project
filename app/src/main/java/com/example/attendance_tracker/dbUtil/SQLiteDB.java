@@ -24,10 +24,19 @@ public class SQLiteDB extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
-        String quizQuery = "CREATE TABLE quiz ( id INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                "question TEXT NOT NULL, option_a TEXT NOT NULL, option_b TEXT NOT NULL, " +
-                "option_c TEXT NOT NULL, option_d TEXT NOT NULL, correct_option TEXT NOT NULL )";
+        String categoryQuery = "CREATE TABLE category ( " +
+                "id INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                "name TEXT NOT NULL UNIQUE )";
 
+        // Create quiz table with categoryId as a foreign key
+        String quizQuery = "CREATE TABLE quiz ( " +
+                "id INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                "question TEXT NOT NULL, option_a TEXT NOT NULL, option_b TEXT NOT NULL, " +
+                "option_c TEXT NOT NULL, option_d TEXT NOT NULL, correct_option TEXT NOT NULL, " +
+                "categoryId INTEGER NOT NULL, " +
+                "FOREIGN KEY (categoryId) REFERENCES category(id) ON DELETE CASCADE )";
+
+        sqLiteDatabase.execSQL(categoryQuery);
         sqLiteDatabase.execSQL(quizQuery);
     }
 
@@ -48,9 +57,12 @@ public class SQLiteDB extends SQLiteOpenHelper {
         values.put("option_c", quiz.getOptionC());
         values.put("option_d", quiz.getOptionD());
         values.put("correct_option", quiz.getCorrectOption());
+        values.put("categoryId", quiz.getCategoryId());
 
         return db.insert("quiz", null, values);
     }
+
+
 
     // Read - Get Quiz by ID
     public Quiz getQuizById(int id) {
@@ -118,5 +130,59 @@ public class SQLiteDB extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         db.delete("quiz", "id = ?", new String[]{String.valueOf(id)});
     }
+
+    // Create - Insert Category
+    public long insertCategory(String categoryName) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put("name", categoryName);
+        return db.insert("category", null, values);
+    }
+
+    // Read - Get All Categories
+    public List<String> getAllCategories() {
+        List<String> categoryList = new ArrayList<>();
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM category", null);
+
+        if (cursor != null) {
+            while (cursor.moveToNext()) {
+                categoryList.add(cursor.getString(1)); // Index 1 -> category name
+            }
+            cursor.close();
+        }
+        return categoryList;
+    }
+
+    // Read - Get Category by ID
+    public String getCategoryById(int id) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.query("category", new String[]{"name"}, "id = ?", new String[]{String.valueOf(id)}, null, null, null);
+
+        if (cursor != null && cursor.moveToFirst()) {
+            String categoryName = cursor.getString(0);
+            cursor.close();
+            return categoryName;
+        }
+        return null;
+    }
+
+    // Update - Update Category Name
+    public int updateCategory(int id, String newName) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put("name", newName);
+
+        return db.update("category", values, "id = ?", new String[]{String.valueOf(id)});
+    }
+
+    // Delete - Delete Category
+    public void deleteCategory(int id) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete("category", "id = ?", new String[]{String.valueOf(id)});
+    }
+
+
+
 }
 

@@ -53,7 +53,7 @@ public class Home extends AppCompatActivity {
                     return true;
                 } else if (itemId == R.id.nav_category) {
                     Toast.makeText(Home.this, "Category clicked", Toast.LENGTH_SHORT).show();
-                    startActivity(new Intent(Home.this, Quiz_List.class));
+                    startActivity(new Intent(Home.this, Category_list.class));
                     return true;
                 } else if (itemId == R.id.nav_profile) {
                     Toast.makeText(Home.this, "Profile clicked", Toast.LENGTH_SHORT).show();
