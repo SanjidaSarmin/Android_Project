@@ -12,14 +12,20 @@
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/nav_gallery"
+        android:id="@+id/nav_score"
         android:name="com.example.attendance_tracker.ui.gallery.GalleryFragment"
         android:label="@string/menu_gallery"
         tools:layout="@layout/fragment_gallery" />
 
     <fragment
-        android:id="@+id/nav_slideshow"
+        android:id="@+id/nav_setting"
         android:name="com.example.attendance_tracker.ui.slideshow.SlideshowFragment"
         android:label="@string/menu_slideshow"
+        tools:layout="@layout/fragment_slideshow" />
+
+    <fragment
+        android:id="@+id/nav_logout"
+        android:name="com.example.attendance_tracker.ui.logout.Logout"
+        android:label="@string/menu_logout"
         tools:layout="@layout/fragment_slideshow" />
 </navigation>

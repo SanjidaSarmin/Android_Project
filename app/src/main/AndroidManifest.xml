@@ -20,15 +20,11 @@
         <activity
             android:name=".Category_list"
             android:exported="false" />
-        <activity
-            android:name=".CategoryAddNActivity"
-            android:exported="false" />
+
         <activity
             android:name=".Category_add"
             android:exported="false" />
-        <activity
-            android:name=".Category_Add"
-            android:exported="false" />
+
         <activity
             android:name=".Math_Quiz"
             android:exported="false" />
