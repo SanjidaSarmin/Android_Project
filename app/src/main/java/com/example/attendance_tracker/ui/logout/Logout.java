@@ -1,5 +1,6 @@
 package com.example.attendance_tracker.ui.logout;
 
+import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -47,22 +48,43 @@ public class Logout extends Fragment {
         String username = sharedPreferences.getString("username", "Guest");
         int userId = sharedPreferences.getInt("user_id", 0);
 
-
+        btnLogout.setOnClickListener(v -> showLogoutConfirmationDialog());
 
         // Logout button click listener
-        btnLogout.setOnClickListener(v -> {
-            SharedPreferences.Editor editor = sharedPreferences.edit();
-            editor.clear();
-            editor.apply();
-
-            Toast.makeText(requireActivity(), "Log Out Called!!!", Toast.LENGTH_SHORT).show();
-            // Redirect to LoginActivity and clear back stack
-            Intent intent = new Intent(requireActivity(), Login.class);
-            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-            startActivity(intent);
-        });
+//        btnLogout.setOnClickListener(v -> {
+//            SharedPreferences.Editor editor = sharedPreferences.edit();
+//            editor.clear();
+//            editor.apply();
+//
+//            Toast.makeText(requireActivity(), "Log Out Called!!!", Toast.LENGTH_SHORT).show();
+//            // Redirect to LoginActivity and clear back stack
+//            Intent intent = new Intent(requireActivity(), Login.class);
+//            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+//            startActivity(intent);
+//        });
 
         return root;
+    }
+    private void showLogoutConfirmationDialog() {
+        new AlertDialog.Builder(requireContext())
+                .setTitle("Log Out")
+                .setMessage("Are you sure you want to log out?")
+                .setPositiveButton("Yes", (dialog, which) -> logout())
+                .setNegativeButton("No", (dialog, which) -> dialog.dismiss())
+                .show();
+    }
+
+    private void logout() {
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.clear();
+        editor.apply();
+
+        Toast.makeText(requireActivity(), "Logged out successfully!", Toast.LENGTH_SHORT).show();
+
+        // Redirect to LoginActivity and clear back stack
+        Intent intent = new Intent(requireActivity(), Login.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(intent);
     }
 
     @Override
