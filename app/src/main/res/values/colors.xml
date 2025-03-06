@@ -40,7 +40,13 @@
     <color name="colorAccent">#03DAC5</color>
 
     <color name="green">#3CB371</color>
+    <color name="light_green">#47BA80</color>
     <color name="light_gray">#F5F5F5</color>
     <color name="highlight_green">#28C76F</color>
+
+    <color name="cream">#FFF8E1</color>
+    <color name="orange">#FF9800</color>
+    <color name="light_orange">#FFCC80</color>
+    <color name="dark_brown">#5D4037</color>
 
 </resources>
