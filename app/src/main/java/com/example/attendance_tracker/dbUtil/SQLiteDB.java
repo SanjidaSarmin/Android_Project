@@ -9,6 +9,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import androidx.annotation.Nullable;
 
 
+import com.example.attendance_tracker.entity.Category;
 import com.example.attendance_tracker.entity.Quiz;
 
 import java.util.ArrayList;
@@ -140,19 +141,22 @@ public class SQLiteDB extends SQLiteOpenHelper {
     }
 
     // Read - Get All Categories
-    public List<String> getAllCategories() {
-        List<String> categoryList = new ArrayList<>();
+    public List<Category> getAllCategories() {
+        List<Category> categories = new ArrayList<>();
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery("SELECT * FROM category", null);
 
         if (cursor != null) {
             while (cursor.moveToNext()) {
-                categoryList.add(cursor.getString(1)); // Index 1 -> category name
+                int id = cursor.getInt(0); // Category ID (Index 0)
+                String name = cursor.getString(1); // Category Name (Index 1)
+                categories.add(new Category(id, name));
             }
             cursor.close();
         }
-        return categoryList;
+        return categories;
     }
+
 
     // Read - Get Category by ID
     public String getCategoryById(int id) {
@@ -180,6 +184,30 @@ public class SQLiteDB extends SQLiteOpenHelper {
     public void deleteCategory(int id) {
         SQLiteDatabase db = this.getWritableDatabase();
         db.delete("category", "id = ?", new String[]{String.valueOf(id)});
+    }
+
+
+    public List<Quiz> getQuizzesByCategory(int categoryId) {
+        List<Quiz> quizList = new ArrayList<>();
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM quiz WHERE categoryId = ?", new String[]{String.valueOf(categoryId)});
+
+        if (cursor != null) {
+            while (cursor.moveToNext()) {
+                quizList.add(new Quiz(
+                        cursor.getInt(0),   // ID
+                        cursor.getString(1), // Question
+                        cursor.getString(2), // Option A
+                        cursor.getString(3), // Option B
+                        cursor.getString(4), // Option C
+                        cursor.getString(5), // Option D
+                        cursor.getString(6), // Correct Option
+                        cursor.getInt(7)     // categoryId
+                ));
+            }
+            cursor.close();
+        }
+        return quizList;
     }
 
 

@@ -12,7 +12,8 @@ public class Quiz implements Serializable {
     private String correctOption;
     private int categoryId;
 
-    public Quiz(int id, String question, String optionA, String optionB, String optionC, String optionD, String correctOption) {
+    public Quiz(int id, String question, String optionA, String optionB, String optionC,
+                String optionD, String correctOption) {
         this.id = id;
         this.question = question;
         this.optionA = optionA;
@@ -32,13 +33,14 @@ public class Quiz implements Serializable {
         this.categoryId = categoryId;
     }
 
-    public Quiz(String question, String optionA, String optionB, String optionC, String optionD, String correctOption) {
+    public Quiz(String question, String optionA, String optionB, String optionC, String optionD, String correctOption,int categoryId) {
         this.question = question;
         this.optionA = optionA;
         this.optionB = optionB;
         this.optionC = optionC;
         this.optionD = optionD;
         this.correctOption = correctOption;
+        this.categoryId = categoryId;
     }
 
     public String getAnswer() {

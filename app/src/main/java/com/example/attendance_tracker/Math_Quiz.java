@@ -25,11 +25,12 @@ import java.util.Random;
 import java.util.logging.Handler;
 
 public class Math_Quiz extends AppCompatActivity {
-    private int score = 0;  // To keep track of the score
-    private int questionIndex = 0;  // To keep track of the current question
+    private int score = 0;
+    private int questionIndex = 0;
+    private int categoryId;
     private Quiz currentQuiz;
-    private SQLiteDB dbHelper;  // Your SQLite helper class
-    private CountDownTimer countDownTimer;  // Timer for each question
+    private SQLiteDB dbHelper;
+    private CountDownTimer countDownTimer;
 
     // UI components
     private TextView questionTextView, scoreTextView, timeTextView;
@@ -54,7 +55,14 @@ public class Math_Quiz extends AppCompatActivity {
 
         dbHelper = new SQLiteDB(this);
 
-        // Load the first question
+        categoryId = getIntent().getIntExtra("categoryId", -1);
+
+        if (categoryId == -1) {
+            Toast.makeText(this, "Invalid category", Toast.LENGTH_SHORT).show();
+            finish();
+            return;
+        }
+
         loadNextQuestion();
 
         // Set up button listeners for options
@@ -66,8 +74,18 @@ public class Math_Quiz extends AppCompatActivity {
 
     // Load next question from the database
     private void loadNextQuestion() {
-        currentQuiz = getRandomQuiz();  // You can also fetch by index, depending on your logic
-        if (currentQuiz != null) {
+        int categoryId = getIntent().getIntExtra("categoryId", -1);
+        Log.d("Math_Quiz", "Category ID: " + categoryId);
+        if (categoryId == -1) {
+            Toast.makeText(this, "Invalid category ID!", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        List<Quiz> quizzes = dbHelper.getQuizzesByCategory(categoryId);
+        Log.d("Math_Quiz", "Number of quizzes found: " + quizzes.size());
+
+        if (quizzes.size() > 0) {
+            currentQuiz = quizzes.get(new Random().nextInt(quizzes.size()));  // Randomly select a quiz from the list
             // Set question text
             questionTextView.setText(currentQuiz.getQuestion());
 
@@ -82,19 +100,21 @@ public class Math_Quiz extends AppCompatActivity {
 
             // Update score display
             scoreTextView.setText("Score: " + score);
+        } else {
+            Toast.makeText(this, "No question found for this category", Toast.LENGTH_SHORT).show();
         }
     }
 
+
     // Get a random quiz question from the database
-    private Quiz getRandomQuiz() {
-        List<Quiz> quizzes = dbHelper.getAllQuizzes();
+    private Quiz getRandomQuiz(int categoryId) {
+        List<Quiz> quizzes = dbHelper.getQuizzesByCategory(categoryId);
         if (quizzes.size() > 0) {
             Random random = new Random();
             return quizzes.get(random.nextInt(quizzes.size()));
         }
         return null;
     }
-
     private void startTimer() {
         if (countDownTimer != null) {
             countDownTimer.cancel();
@@ -115,8 +135,7 @@ public class Math_Quiz extends AppCompatActivity {
             @Override
             public void onFinish() {
                 timeTextView.setText("0 sec");
-                progressBar.setProgress(0);  // Ensure progress reaches 0
-                Toast.makeText(Math_Quiz.this, "Time's up!", Toast.LENGTH_SHORT).show();
+                progressBar.setProgress(0);
                 loadNextQuestion();  // Move to the next question
             }
         }.start();

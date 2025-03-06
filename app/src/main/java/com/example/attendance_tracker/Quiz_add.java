@@ -2,6 +2,7 @@ package com.example.attendance_tracker;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -12,25 +13,27 @@ import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 import com.example.attendance_tracker.dbUtil.SQLiteDB;
+import com.example.attendance_tracker.entity.Category;
 import com.example.attendance_tracker.entity.Quiz;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 public class Quiz_add extends AppCompatActivity {
 
     private EditText etQuestion, etOptionA, etOptionB, etOptionC, etOptionD;
-    private Spinner spCorrectOption;
+    private Spinner spCorrectOption, spCategory;
     private Button btnSave;
 
     private String selectedCorrectOption;
+    private int selectedCategoryId;
     private Quiz currentQuiz;
     private boolean isEditMode = false;
+    private List<Category> categoryList;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,6 +45,7 @@ public class Quiz_add extends AppCompatActivity {
         etOptionB = findViewById(R.id.etOptionB);
         etOptionC = findViewById(R.id.etOptionC);
         etOptionD = findViewById(R.id.etOptionD);
+        spCategory = findViewById(R.id.spCategory);
         spCorrectOption = findViewById(R.id.spCorrectOption);
         btnSave = findViewById(R.id.btnSave);
 
@@ -64,6 +68,7 @@ public class Quiz_add extends AppCompatActivity {
                 selectedCorrectOption = null;
             }
         });
+        loadCategories();
 
         // Check if editing an existing quiz
         if (getIntent().hasExtra("quiz")) {
@@ -74,6 +79,34 @@ public class Quiz_add extends AppCompatActivity {
         }
 
         btnSave.setOnClickListener(view -> submitQuiz());
+    }
+
+    private void loadCategories() {
+        categoryList = sqLiteDB.getAllCategories();
+
+        List<String> categoryNames = new ArrayList<>();
+        for (Category category : categoryList) {
+            Log.d("Category", "-----ID: " + category.getId() + " Name: " + category.getName());
+            categoryNames.add(category.getName());
+        }
+
+        ArrayAdapter<String> categoryAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, categoryNames);
+        categoryAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spCategory.setAdapter(categoryAdapter);
+
+        spCategory.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                selectedCategoryId = categoryList.get(position).getId(); // Get the category ID
+                Log.d("Selected Category", "----Category ID: " + selectedCategoryId);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                selectedCategoryId = -1; // Handle case where no category is selected
+            }
+        });
+
     }
 
     private void populateFields() {
@@ -103,7 +136,8 @@ public class Quiz_add extends AppCompatActivity {
         String optionD = etOptionD.getText().toString().trim();
 
         // Validate inputs
-        if (question.isEmpty() || optionA.isEmpty() || optionB.isEmpty() || optionC.isEmpty() || optionD.isEmpty() || selectedCorrectOption == null) {
+        if (question.isEmpty() || optionA.isEmpty() || optionB.isEmpty() || optionC.isEmpty() || optionD.isEmpty()
+                || selectedCorrectOption == null || selectedCategoryId == -1) {
             Toast.makeText(this, "Please fill all fields", Toast.LENGTH_SHORT).show();
             return;
         }
@@ -116,13 +150,19 @@ public class Quiz_add extends AppCompatActivity {
             currentQuiz.setOptionC(optionC);
             currentQuiz.setOptionD(optionD);
             currentQuiz.setCorrectOption(selectedCorrectOption);
+            currentQuiz.setCategoryId(selectedCategoryId);
 
             sqLiteDB.updateQuiz(currentQuiz);
             Toast.makeText(this, "Quiz Updated!", Toast.LENGTH_SHORT).show();
         } else {
             // Create new quiz
-            Quiz newQuiz = new Quiz(question, optionA, optionB, optionC, optionD, selectedCorrectOption);
+            Quiz newQuiz = new Quiz(question, optionA, optionB, optionC, optionD, selectedCorrectOption, selectedCategoryId);
             long result = sqLiteDB.insertQuiz(newQuiz);
+            if (result == -1) {
+                Toast.makeText(this, "Error adding quiz", Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(this, "Quiz Added!", Toast.LENGTH_SHORT).show();
+            }
             Toast.makeText(this, "Quiz Added!", Toast.LENGTH_SHORT).show();
         }
 

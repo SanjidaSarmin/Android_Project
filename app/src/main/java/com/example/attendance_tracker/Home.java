@@ -31,10 +31,16 @@ public class Home extends AppCompatActivity {
         cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), "Card Clicked!", Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(Home.this, Math_Quiz.class));
+                // Show a toast to confirm the click
+                Toast.makeText(getApplicationContext(), "Science Card Clicked!", Toast.LENGTH_SHORT).show();
+
+                // Pass the categoryId (e.g., 1 for Science) to the Math_Quiz activity
+                Intent intent = new Intent(Home.this, Math_Quiz.class);
+                intent.putExtra("categoryId", 1); // Pass the categoryId for Science
+                startActivity(intent);
             }
         });
+
 
         bottomNavigationView.setOnItemSelectedListener(new BottomNavigationView.OnItemSelectedListener() {
             @Override
