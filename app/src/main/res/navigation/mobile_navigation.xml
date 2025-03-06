@@ -18,6 +18,12 @@
         tools:layout="@layout/fragment_gallery" />
 
     <fragment
+        android:id="@+id/nav_hint"
+        android:name="com.example.attendance_tracker.ui.Hint"
+        android:label="@string/menu_hint"
+        tools:layout="@layout/fragment_hint" />
+
+    <fragment
         android:id="@+id/nav_setting"
         android:name="com.example.attendance_tracker.ui.slideshow.SlideshowFragment"
         android:label="@string/menu_slideshow"

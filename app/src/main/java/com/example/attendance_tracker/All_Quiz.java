@@ -1,30 +1,27 @@
 package com.example.attendance_tracker;
 
 import android.animation.ObjectAnimator;
-import android.graphics.Color;
-import android.graphics.PorterDuff;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 import com.example.attendance_tracker.dbUtil.SQLiteDB;
 import com.example.attendance_tracker.entity.Quiz;
 
 import java.util.List;
 import java.util.Random;
-import java.util.logging.Handler;
 
-public class Math_Quiz extends AppCompatActivity {
+public class All_Quiz extends AppCompatActivity {
     private int score = 0;
     private int questionIndex = 0;
     private int categoryId;
@@ -35,13 +32,14 @@ public class Math_Quiz extends AppCompatActivity {
     // UI components
     private TextView questionTextView, scoreTextView, timeTextView;
     private Button btnOption1, btnOption2, btnOption3, btnOption4;
+    private ImageView img;
     private ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_math_quiz);
+        setContentView(R.layout.activity_all_quiz);
 
         // Initialize the UI components
         questionTextView = findViewById(R.id.questionTextView);
@@ -52,6 +50,15 @@ public class Math_Quiz extends AppCompatActivity {
         btnOption3 = findViewById(R.id.btnOption3);
         btnOption4 = findViewById(R.id.btnOption4);
         progressBar = findViewById(R.id.progressBar);
+        img = findViewById(R.id.crossicon);
+
+        img.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(All_Quiz.this, Home.class);
+                startActivity(intent);
+            }
+        });
 
         dbHelper = new SQLiteDB(this);
 
@@ -180,7 +187,7 @@ public class Math_Quiz extends AppCompatActivity {
 
 
         if (isCorrect) {
-            score++;  // Increase score if answer is correct
+            score+=10;
             Toast.makeText(this, "Correct!", Toast.LENGTH_SHORT).show();
         } else {
             Toast.makeText(this, "Incorrect", Toast.LENGTH_SHORT).show();

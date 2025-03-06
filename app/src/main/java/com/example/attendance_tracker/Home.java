@@ -7,10 +7,7 @@ import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
-import android.os.Bundle;
+
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
@@ -35,7 +32,7 @@ public class Home extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), "Science Card Clicked!", Toast.LENGTH_SHORT).show();
 
                 // Pass the categoryId (e.g., 1 for Science) to the Math_Quiz activity
-                Intent intent = new Intent(Home.this, Math_Quiz.class);
+                Intent intent = new Intent(Home.this, All_Quiz.class);
                 intent.putExtra("categoryId", 1); // Pass the categoryId for Science
                 startActivity(intent);
             }

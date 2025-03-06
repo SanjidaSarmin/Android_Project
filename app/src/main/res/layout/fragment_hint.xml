@@ -1,0 +1,109 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="@color/gray_light">
+
+    <!-- Title "KNOWLEDGE QUIZ" -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_marginTop="20dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="BRAINHIVE"
+            android:textSize="26sp"
+            android:textStyle="bold"
+            android:textColor="@color/green"/>
+
+    </LinearLayout>
+
+    <!-- Game Rules Card -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:background="@drawable/dialog_bg"
+        android:orientation="vertical"
+        android:padding="20dp"
+        android:elevation="8dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Game Rules"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:paddingBottom="10dp" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="You have 20 seconds per question"
+                android:textSize="20sp"
+                android:drawableLeft="@drawable/green_dot"
+                android:drawablePadding="8dp"
+                android:textColor="@color/black"
+                android:layout_marginBottom="10dp"/>
+
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="You have 3 lives per game"
+                android:textSize="20sp"
+                android:drawableLeft="@drawable/green_dot"
+                android:drawablePadding="8dp"
+                android:textColor="@color/black"
+                android:layout_marginBottom="10dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Earn more points for faster answers"
+                android:textSize="20sp"
+                android:drawableLeft="@drawable/green_dot"
+                android:drawablePadding="8dp"
+                android:textColor="@color/black"
+                android:layout_marginBottom="10dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Every 5 consecutive correct answers earn you an additional life"
+                android:textSize="20sp"
+                android:drawableLeft="@drawable/green_dot"
+                android:drawablePadding="8dp"
+                android:textColor="@color/black"
+                android:layout_marginBottom="10dp"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/close_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Close"
+            android:textSize="16sp"
+            android:textColor="@color/green"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:paddingTop="10dp"/>
+    </LinearLayout>
+
+</LinearLayout>
