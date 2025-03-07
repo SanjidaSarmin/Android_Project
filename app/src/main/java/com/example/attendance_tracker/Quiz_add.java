@@ -3,6 +3,7 @@ package com.example.attendance_tracker;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -12,11 +13,13 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.attendance_tracker.dbUtil.SQLiteDB;
 import com.example.attendance_tracker.entity.Category;
 import com.example.attendance_tracker.entity.Quiz;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -39,6 +42,33 @@ public class Quiz_add extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_quiz_add);
+
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigation);
+
+        bottomNavigationView.setOnItemSelectedListener(new BottomNavigationView.OnItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                // Handle the clicks without switch case
+                int itemId = item.getItemId();
+                if (itemId == R.id.nav_home) {
+                    startActivity(new Intent(Quiz_add.this, Home.class));
+                    return true;
+                } else if (itemId == R.id.nav_search) {
+                    startActivity(new Intent(Quiz_add.this, Hints.class));
+                    return true;
+                } else if (itemId == R.id.nav_add) {
+                    startActivity(new Intent(Quiz_add.this, Quiz_add.class));
+                    return true;
+                } else if (itemId == R.id.nav_category) {
+                    startActivity(new Intent(Quiz_add.this, Category_list.class));
+                    return true;
+                } else if (itemId == R.id.nav_profile) {
+                    startActivity(new Intent(Quiz_add.this, Profile.class));
+                    return true;
+                }
+                return false;
+            }
+        });
 
         etQuestion = findViewById(R.id.etQuestion);
         etOptionA = findViewById(R.id.etOptionA);

@@ -121,12 +121,8 @@ public class Home extends AppCompatActivity {
                 if (itemId == R.id.nav_home) {
                     return true;
                 } else if (itemId == R.id.nav_search) {
-                    Fragment fragment = new Hint();
-                    FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-
-                    transaction.replace(R.id.fragment_container, fragment); // Use your container's ID
-                    transaction.addToBackStack(null);
-                    transaction.commit();
+                    Toast.makeText(Home.this, "Hint clicked", Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(Home.this, Hints.class));
                     return true;
                 } else if (itemId == R.id.nav_add) {
                     Toast.makeText(Home.this, "Add clicked", Toast.LENGTH_SHORT).show();
