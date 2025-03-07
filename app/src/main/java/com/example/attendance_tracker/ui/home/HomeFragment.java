@@ -36,9 +36,9 @@ public class HomeFragment extends Fragment {
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        binding.progress1.setProgress(60);
-        binding.progress2.setProgress(80);
-        binding.progress3.setProgress(50);
+//        binding.progress1.setProgress(60);
+//        binding.progress2.setProgress(80);
+//        binding.progress3.setProgress(50);
 
         BottomNavigationView bottomNavigationView = binding.bottomNav;
 

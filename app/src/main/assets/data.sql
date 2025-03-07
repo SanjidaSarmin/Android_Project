@@ -1,34 +1,34 @@
--- Create 'users' table
-CREATE TABLE IF NOT EXISTS users (
+-- Create 'category' table
+CREATE TABLE IF NOT EXISTS category (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    name TEXT NOT NULL,
-    age INTEGER NOT NULL
+    name TEXT NOT NULL);
+
+INSERT Or Ignore INTO category (name) VALUES ('Science'); --1
+INSERT INTO category (name) VALUES ('Math'); --2
+INSERT INTO category (name) VALUES ('Technology'); --3
+INSERT INTO category (name) VALUES ('Sports'); --4
+INSERT INTO category (name) VALUES ('GK'); --5
+INSERT INTO category (name) VALUES ('ART'); --6
+
+-- Create 'quiz' table
+CREATE TABLE IF NOT EXISTS quiz (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    question TEXT NOT NULL,
+    option_a TEXT NOT NULL,
+    option_b TEXT NOT NULL,
+    option_c TEXT NOT NULL,
+    option_d TEXT NOT NULL,
+    correct_option TEXT NOT NULL,
+    categoryId INTEGER NOT NULL,
+    FOREIGN KEY (categoryId) REFERENCES category(id) ON DELETE CASCADE
 );
 
--- Insert data into 'users' table
-INSERT INTO users (name, age) VALUES ('John Doe', 28);
-INSERT INTO users (name, age) VALUES ('Jane Smith', 34);
-INSERT INTO users (name, age) VALUES ('Michael Brown', 25);
-INSERT INTO users (name, age) VALUES ('Sara Wilson', 29);
-INSERT INTO users (name, age) VALUES ('David Lee', 40);
+-- Insert sample quiz data
+INSERT INTO quiz (question, option_a, option_b, option_c, option_d, correct_option, categoryId)
+VALUES ('What is the capital of France?', 'Berlin', 'Madrid', 'Paris', 'Rome', 'C', 5);
 
--- Create 'orders' table
-CREATE TABLE IF NOT EXISTS orders (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    user_id INTEGER,
-    product_name TEXT NOT NULL,
-    quantity INTEGER NOT NULL,
-    FOREIGN KEY(user_id) REFERENCES users(id)
-);
-
--- Insert data into 'orders' table
-INSERT INTO orders (user_id, product_name, quantity) VALUES (1, 'Laptop', 1);
-INSERT INTO orders (user_id, product_name, quantity) VALUES (2, 'Smartphone', 2);
-INSERT INTO orders (user_id, product_name, quantity) VALUES (3, 'Tablet', 1);
-INSERT INTO orders (user_id, product_name, quantity) VALUES (4, 'Headphones', 3);
-INSERT INTO orders (user_id, product_name, quantity) VALUES (5, 'Smartwatch', 1);
-
-
+INSERT INTO quiz (question, option_a, option_b, option_c, option_d, correct_option, categoryId)
+VALUES ('What is 5 + 3?', '5', '8', '9', '7', 'B', 2);
 
 
 --
@@ -50,7 +50,7 @@ INSERT INTO orders (user_id, product_name, quantity) VALUES (5, 'Smartwatch', 1)
 --    }
 --
 --    // Method to execute the SQL dump from the 'assets/data.sql' file
---    public void executeSQLDump(SQLiteDatabase db, Context context) {
+--    public void executeSQLFromFile(SQLiteDatabase db, Context context) {
 --        try {
 --            InputStream inputStream = context.getAssets().open("data.sql");
 --            BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));

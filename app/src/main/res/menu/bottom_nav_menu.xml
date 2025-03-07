@@ -9,15 +9,15 @@
 
     <item
         android:id="@+id/nav_search"
-        android:icon="@drawable/baseline_view_list_24"
-        android:title="quetion" />
+        android:icon="@drawable/ic_hint"
+        android:title="Hint" />
     <item
         android:id="@+id/nav_add"
         android:icon="@drawable/ic_add_circle"
         android:title="Add" />
     <item
         android:id="@+id/nav_category"
-        android:icon="@drawable/ic_category"
+        android:icon="@drawable/baseline_view_list_24"
         android:title="Categories" />
 
     <item

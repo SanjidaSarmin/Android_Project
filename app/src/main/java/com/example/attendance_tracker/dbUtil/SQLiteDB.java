@@ -1,10 +1,14 @@
 package com.example.attendance_tracker.dbUtil;
 
+import static java.security.AccessController.getContext;
+
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
+import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 import androidx.annotation.Nullable;
 
@@ -12,6 +16,10 @@ import androidx.annotation.Nullable;
 import com.example.attendance_tracker.entity.Category;
 import com.example.attendance_tracker.entity.Quiz;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,15 +27,18 @@ public class SQLiteDB extends SQLiteOpenHelper {
     private static final String DB_NAME = "quizDB";
     private static final int DB_VERSION = 1;
 
-    public SQLiteDB(@Nullable Context context) {
+    private Context context;
+
+    public SQLiteDB(Context context) {
         super(context, DB_NAME, null, DB_VERSION);
+        this.context = context;  // Initialize context
     }
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         String categoryQuery = "CREATE TABLE category ( " +
                 "id INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                "name TEXT NOT NULL UNIQUE )";
+                "name TEXT NOT NULL)";
 
         // Create quiz table with categoryId as a foreign key
         String quizQuery = "CREATE TABLE quiz ( " +
@@ -39,13 +50,83 @@ public class SQLiteDB extends SQLiteOpenHelper {
 
         sqLiteDatabase.execSQL(categoryQuery);
         sqLiteDatabase.execSQL(quizQuery);
+
+        executeSQLFromFile(sqLiteDatabase,  context);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("DROP TABLE IF EXISTS quiz");
+        db.execSQL("DROP TABLE IF EXISTS category");
         onCreate(db);
     }
+
+    public void executeSQLFromFile(SQLiteDatabase db, Context context) {
+        try {
+            InputStream inputStream = context.getAssets().open("data.sql");
+            BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
+            StringBuilder sqlQuery = new StringBuilder();
+            String line;
+
+            while ((line = reader.readLine()) != null) {
+                line = line.trim();  // Remove leading/trailing whitespace
+
+                // Skip empty lines and comments (assuming comments start with '--')
+                if (line.isEmpty() || line.startsWith("--")) {
+                    continue;
+                }
+
+                // Append the line to the SQL query
+                sqlQuery.append(line).append(" ");
+
+                // If the line ends with a semicolon, execute the query
+                if (line.endsWith(";")) {
+                    String query = sqlQuery.toString().trim();
+                    if (!query.isEmpty()) {
+                        Log.d("DBHelper", "Executing query: " + query);
+                        try {
+                            db.execSQL(query);
+                        } catch (SQLException e) {
+                            Log.e("DBHelper", "Error executing query: " + query, e);
+                        }
+                        sqlQuery.setLength(0);  // Reset StringBuilder for next query
+                    }
+                }
+            }
+
+            reader.close();
+        } catch (IOException | SQLException e) {
+            Log.e("DBHelper", "Error executing SQL dump", e);
+        }
+    }
+
+
+//    public void executeSQLFromFile(SQLiteDatabase db, String fileName, Context context) {
+//        try {
+//            // Open the SQL file from assets folder
+//            InputStream inputStream = context.getAssets().open("data.sql");
+//            BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
+//            StringBuilder sqlQuery = new StringBuilder();
+//            String line;
+//
+//            // Read the entire SQL file
+//            while ((line = reader.readLine()) != null) {
+//                sqlQuery.append(line).append("\n");
+//            }
+//            reader.close();
+//
+//            // Execute all queries from the file
+//            String[] queries = sqlQuery.toString().split(";");
+//            for (String query : queries) {
+//                if (query.trim().length() > 0) {
+//                    db.execSQL(query.trim());
+//                }
+//            }
+//        } catch (IOException e) {
+//            Log.e("SQLiteDB", "Error reading SQL file", e);
+//        }
+//    }
+
 
     // Create - Insert Quiz
     public long insertQuiz(Quiz quiz) {
