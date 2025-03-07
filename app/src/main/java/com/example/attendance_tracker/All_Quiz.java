@@ -4,6 +4,7 @@ import android.animation.ObjectAnimator;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -150,16 +151,12 @@ public class All_Quiz extends AppCompatActivity {
 
 
     // Check if the selected answer is correct
+    // Check if the selected answer is correct
     private void checkAnswer(Button selectedButton) {
         // Get the text of the selected answer
         String selectedAnswer = selectedButton.getText().toString().trim();
-
-
         String correctAnswer = currentQuiz.getCorrectOption().trim();
-
-
         boolean isCorrect = false;
-
 
         switch (correctAnswer) {
             case "A":
@@ -176,32 +173,30 @@ public class All_Quiz extends AppCompatActivity {
                 break;
         }
 
-
         int color = isCorrect ? getResources().getColor(R.color.correctAnswerColor) : getResources().getColor(R.color.incorrectAnswerColor);
         selectedButton.setBackgroundColor(color);
 
-        // Optionally, animate the background color change for smooth transition
+        // Optionally, animate the background color change for a smooth transition
         ObjectAnimator.ofArgb(selectedButton, "backgroundColor", color, color)
-                .setDuration(500) // 500ms duration for the animation
+                .setDuration(300) // 500ms duration for the animation
                 .start();
 
-
         if (isCorrect) {
-            score+=10;
+            score += 10;
             Toast.makeText(this, "Correct!", Toast.LENGTH_SHORT).show();
         } else {
             Toast.makeText(this, "Incorrect", Toast.LENGTH_SHORT).show();
         }
 
-
         scoreTextView.setText("SCORE: " + score);
 
-        // Move to next question after a short delay
-//        new Handler().postDelayed(() -> {
-//            currentQuestionIndex++;
-//            loadNextQuiz();
-//        }, 1000);
+        // Move to the next question after a short delay
+        new Handler().postDelayed(() -> {
+            selectedButton.setBackgroundColor(getResources().getColor(R.color.defaultButtonColor));
+            loadNextQuestion();
+        }, 500); // 1-second delay
     }
+
 
 
 

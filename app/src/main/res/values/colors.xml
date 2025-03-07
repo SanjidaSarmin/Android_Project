@@ -49,4 +49,6 @@
     <color name="light_orange">#FFCC80</color>
     <color name="dark_brown">#5D4037</color>
 
+    <color name="defaultButtonColor">#FFFFFF</color>
+
 </resources>
