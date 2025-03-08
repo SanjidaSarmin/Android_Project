@@ -51,7 +51,7 @@ public class SQLiteDB extends SQLiteOpenHelper {
         sqLiteDatabase.execSQL(categoryQuery);
         sqLiteDatabase.execSQL(quizQuery);
 
-        executeSQLFromFile(sqLiteDatabase,  context);
+//        executeSQLFromFile(sqLiteDatabase,  context);
     }
 
     @Override

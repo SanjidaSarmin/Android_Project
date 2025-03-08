@@ -3,12 +3,12 @@ CREATE TABLE IF NOT EXISTS category (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     name TEXT NOT NULL);
 
-INSERT Or Ignore INTO category (name) VALUES ('Science'); --1
-INSERT INTO category (name) VALUES ('Math'); --2
-INSERT INTO category (name) VALUES ('Technology'); --3
-INSERT INTO category (name) VALUES ('Sports'); --4
-INSERT INTO category (name) VALUES ('GK'); --5
-INSERT INTO category (name) VALUES ('ART'); --6
+--INSERT Or Ignore INTO category (name) VALUES ('Science');
+--INSERT Or Ignore INTO category (name) VALUES ('Math');
+--INSERT Or Ignore INTO category (name) VALUES ('Technology');
+--INSERT Or Ignore INTO category (name) VALUES ('Sports');
+--INSERT Or Ignore INTO category (name) VALUES ('GK');
+--INSERT Or Ignore INTO category (name) VALUES ('ART');
 
 -- Create 'quiz' table
 CREATE TABLE IF NOT EXISTS quiz (

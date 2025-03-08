@@ -119,6 +119,7 @@ public class Home extends AppCompatActivity {
                 // Handle the clicks without switch case
                 int itemId = item.getItemId();
                 if (itemId == R.id.nav_home) {
+                    startActivity(new Intent(Home.this, Home.class));
                     return true;
                 } else if (itemId == R.id.nav_search) {
                     Toast.makeText(Home.this, "Hint clicked", Toast.LENGTH_SHORT).show();

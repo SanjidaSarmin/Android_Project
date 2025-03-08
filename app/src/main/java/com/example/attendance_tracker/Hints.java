@@ -32,7 +32,7 @@ public class Hints extends AppCompatActivity {
                     startActivity(new Intent(Hints.this, Home.class));
                     return true;
                 } else if (itemId == R.id.nav_search) {
-                    startActivity(new Intent(Hints.this, Hints.class));
+                    startActivity(new Intent(Hints.this, Quiz_List.class));
                     return true;
                 } else if (itemId == R.id.nav_add) {
                     startActivity(new Intent(Hints.this, Quiz_add.class));
