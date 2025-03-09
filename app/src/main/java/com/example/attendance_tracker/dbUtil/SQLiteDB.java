@@ -292,6 +292,17 @@ public class SQLiteDB extends SQLiteOpenHelper {
     }
 
 
+//    public void saveTotalScore(int score) {
+//        SQLiteDatabase db = this.getWritableDatabase();
+//        ContentValues values = new ContentValues();
+//        values.put("total_score", score);
+//
+//        // Check if a score entry exists, if not, insert; otherwise, update
+//        int updatedRows = db.update("score_table", values, null, null);
+//        if (updatedRows == 0) {
+//            db.insert("score_table", null, values);
+//        }
+//    }
 
 }
 

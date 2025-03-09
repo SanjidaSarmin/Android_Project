@@ -2,6 +2,7 @@ package com.example.attendance_tracker;
 
 import android.animation.ObjectAnimator;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Handler;
@@ -23,6 +24,7 @@ import java.util.List;
 import java.util.Random;
 
 public class All_Quiz extends AppCompatActivity {
+
     private int score = 0;
     private int questionIndex = 0;
     private int categoryId;
@@ -62,6 +64,9 @@ public class All_Quiz extends AppCompatActivity {
         });
 
         dbHelper = new SQLiteDB(this);
+
+        loadSavedScore();
+        scoreTextView.setText("SCORE: " + score);
 
         categoryId = getIntent().getIntExtra("categoryId", -1);
 
@@ -135,7 +140,7 @@ public class All_Quiz extends AppCompatActivity {
                 timeTextView.setText(secondsLeft + " sec");
 
                 // ✅ Decrease smoothly
-                progressBar.setProgress(secondsLeft+ 8);
+                progressBar.setProgress(secondsLeft);
 
 
             }
@@ -183,6 +188,7 @@ public class All_Quiz extends AppCompatActivity {
 
         if (isCorrect) {
             score += 10;
+            saveScore();
             Toast.makeText(this, "Correct!", Toast.LENGTH_SHORT).show();
         } else {
             Toast.makeText(this, "Incorrect", Toast.LENGTH_SHORT).show();
@@ -194,10 +200,20 @@ public class All_Quiz extends AppCompatActivity {
         new Handler().postDelayed(() -> {
             selectedButton.setBackgroundColor(getResources().getColor(R.color.defaultButtonColor));
             loadNextQuestion();
-        }, 500); // 1-second delay
+        }, 500);
+
+
+    }
+    private void saveScore() {
+        SharedPreferences prefs = getSharedPreferences("QuizPrefs", MODE_PRIVATE);
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.putInt("totalScore", score); // Store the updated score
+        editor.apply();
     }
 
-
-
+    private void loadSavedScore() {
+        SharedPreferences prefs = getSharedPreferences("QuizPrefs", MODE_PRIVATE);
+        score = prefs.getInt("totalScore", 0); // Default to 0 if no score found
+    }
 
 }
