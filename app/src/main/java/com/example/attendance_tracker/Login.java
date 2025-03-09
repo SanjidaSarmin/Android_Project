@@ -78,7 +78,7 @@ public class Login extends AppCompatActivity {
 
     private void loginUser(String email, String password, SharedPreferences sharedPreferences) {
         // Simulated login check (replace with real authentication)
-        if (email.equals("user@gmail.com") && password.equals("pass123")) {
+        if (email.equals("sanjida@gmail.com") && password.equals("pass123")) {
             Toast.makeText(Login.this, "Login Successful", Toast.LENGTH_SHORT).show();
 
             // Save login state in SharedPreferences

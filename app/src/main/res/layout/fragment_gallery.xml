@@ -1,22 +1,73 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ui.gallery.GalleryFragment">
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="@android:color/white"
+    tools:context=".MainActivity">
 
+    <!-- Logo (Shifted Higher) -->
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/logo2"
+        android:layout_marginTop="30dp"/>
+
+    <!-- Middle Section -->
     <TextView
-        android:id="@+id/text_gallery"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:layout_marginTop="90dp"
+        android:text="WELL DONE!"
+        android:textColor="@color/light_green"
+        android:textSize="30sp"
+        android:textStyle="bold" />
+
+    <ImageView
+        android:layout_width="220dp"
+        android:layout_height="wrap_content"
+        android:src="@drawable/star"/>
+
+    <!-- Score Number -->
+    <TextView
+        android:id="@+id/tv_score_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="1200"
+        android:textSize="36sp"
+        android:textStyle="bold"
+        android:textColor="#4CAF50"
+        android:layout_marginBottom="20dp"/>
+
+    <!-- "SCORE" Text -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SCORE"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:textColor="#263238"
+        android:layout_marginBottom="40dp"/>
+
+    <!-- Description -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Started playing with BRAINHIVE"
+        android:textSize="18sp"
+        android:textColor="#607D8B"
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="50dp"/>
+
+    <!-- Close Button -->
+    <TextView
+        android:id="@+id/tvClose"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="CLOSE"
+        android:textSize="18sp"
+        android:textColor="#263238"
+        android:layout_marginTop="40dp"/>
+</LinearLayout>
