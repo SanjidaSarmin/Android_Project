@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -38,6 +39,14 @@ public class GalleryFragment extends Fragment {
         binding.tvClose.setOnClickListener(v -> {
             requireActivity().getSupportFragmentManager().popBackStack(); // Close fragment
         });
+
+        binding.tvRestore.setOnClickListener(v -> {
+            score = 0; // Reset score
+            saveScore(); // Save reset score
+            binding.tvScoreNumber.setText(String.valueOf(score)); // Update UI
+            Toast.makeText(requireContext(), "Score reset!", Toast.LENGTH_SHORT).show();
+        });
+
 
         return root;
     }

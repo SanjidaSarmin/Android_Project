@@ -77,6 +77,12 @@ public class Logout extends Fragment {
     private void logout() {
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.clear();
+
+        SharedPreferences quizPrefs = requireActivity().getSharedPreferences("QuizPrefs", Context.MODE_PRIVATE);
+        SharedPreferences.Editor quizEditor = quizPrefs.edit();
+        quizEditor.putInt("totalScore", 0); // Reset score to 0
+        quizEditor.apply();
+
         editor.apply();
 
         Toast.makeText(requireActivity(), "Logged out successfully!", Toast.LENGTH_SHORT).show();

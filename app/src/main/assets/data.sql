@@ -25,33 +25,33 @@ CREATE TABLE IF NOT EXISTS quiz (
 
 -- Insert sample quiz data
 
---INSERT INTO quiz (question, option_a, option_b, option_c, option_d, correct_option, categoryId) VALUES
---('What is the chemical symbol for water?', 'O2', 'H2O', 'CO2', 'NaCl', 'B', 1),
---('What planet is known as the Red Planet?', 'Venus', 'Mars', 'Jupiter', 'Saturn', 'B', 1),
---('What gas do plants absorb from the atmosphere?', 'Oxygen', 'Carbon Dioxide', 'Nitrogen', 'Hydrogen', 'B', 1),
---('What is the largest organ in the human body?', 'Heart', 'Liver', 'Skin', 'Brain', 'C', 1),
---('What force keeps objects on the ground?', 'Magnetism', 'Gravity', 'Friction', 'Inertia', 'B', 1),
---('What is the powerhouse of the cell?', 'Ribosome', 'Mitochondria', 'Nucleus', 'Golgi Apparatus', 'B', 1),
---('What is the hardest natural substance on Earth?', 'Gold', 'Iron', 'Diamond', 'Quartz', 'C', 1),
---('Which element has the atomic number 1?', 'Hydrogen', 'Oxygen', 'Nitrogen', 'Helium', 'A', 1),
---('What is the process by which plants make their food?', 'Respiration', 'Photosynthesis', 'Fermentation', 'Digestion', 'B', 1),
---('Who developed the theory of relativity?', 'Isaac Newton', 'Albert Einstein', 'Galileo Galilei', 'Nikola Tesla', 'B', 1);
---('What is the most common element in the Earth\'s crust?', 'Iron', 'Oxygen', 'Silicon', 'Aluminum', 'B', 1),
---('What type of animal is the largest living creature on Earth?', 'Shark', 'Elephant', 'Blue Whale', 'Giraffe', 'C', 1),
---('What is the chemical formula for methane?', 'CH4', 'C2H6', 'C3H8', 'CO2', 'A', 1),
---('Which part of the cell contains the genetic material?', 'Mitochondria', 'Nucleus', 'Ribosome', 'Golgi apparatus', 'B', 1),
---('What is the closest star to Earth?', 'Sirius', 'Proxima Centauri', 'Sun', 'Alpha Centauri', 'C', 1),
---('What is the atomic number of carbon?', '6', '12', '14', '8', 'A', 1),
---('What is the chemical element symbol for gold?', 'Ag', 'Au', 'Pb', 'Fe', 'B', 1),
---('What is the name of the largest moon of Saturn?', 'Titan', 'Europa', 'Ganymede', 'Io', 'A', 1),
---('What is the process by which plants lose water through their leaves?', 'Transpiration', 'Respiration', 'Evaporation', 'Photosynthesis', 'A', 1),
---('Which planet is known as the "Morning Star"?', 'Venus', 'Mars', 'Jupiter', 'Saturn', 'A', 1),
---('How many bones are in the adult human body?', '206', '210', '220', '205', 'A', 1),
---('What is the chemical symbol for Sodium?', 'S', 'Na', 'So', 'Sn', 'B', 1),
---('Which scientist developed the theory of evolution?', 'Isaac Newton', 'Charles Darwin', 'Albert Einstein', 'Nikola Tesla', 'B', 1),
---('What is the center of an atom called?', 'Electron', 'Proton', 'Neutron', 'Nucleus', 'D', 1),
---('Which gas do humans exhale during respiration?', 'Oxygen', 'Carbon Dioxide', 'Nitrogen', 'Hydrogen', 'B', 1);
---
+INSERT INTO quiz (question, option_a, option_b, option_c, option_d, correct_option, categoryId) VALUES
+('What is the chemical symbol for water?', 'O2', 'H2O', 'CO2', 'NaCl', 'B', 1),
+('What planet is known as the Red Planet?', 'Venus', 'Mars', 'Jupiter', 'Saturn', 'B', 1),
+('What gas do plants absorb from the atmosphere?', 'Oxygen', 'Carbon Dioxide', 'Nitrogen', 'Hydrogen', 'B', 1),
+('What is the largest organ in the human body?', 'Heart', 'Liver', 'Skin', 'Brain', 'C', 1),
+('What force keeps objects on the ground?', 'Magnetism', 'Gravity', 'Friction', 'Inertia', 'B', 1),
+('What is the powerhouse of the cell?', 'Ribosome', 'Mitochondria', 'Nucleus', 'Golgi Apparatus', 'B', 1),
+('What is the hardest natural substance on Earth?', 'Gold', 'Iron', 'Diamond', 'Quartz', 'C', 1),
+('Which element has the atomic number 1?', 'Hydrogen', 'Oxygen', 'Nitrogen', 'Helium', 'A', 1),
+('What is the process by which plants make their food?', 'Respiration', 'Photosynthesis', 'Fermentation', 'Digestion', 'B', 1),
+('Who developed the theory of relativity?', 'Isaac Newton', 'Albert Einstein', 'Galileo Galilei', 'Nikola Tesla', 'B', 1);
+('What is the most common element in the Earths crust?', 'Iron', 'Oxygen', 'Silicon', 'Aluminum', 'B', 1),
+('What type of animal is the largest living creature on Earth?', 'Shark', 'Elephant', 'Blue Whale', 'Giraffe', 'C', 1),
+('What is the chemical formula for methane?', 'CH4', 'C2H6', 'C3H8', 'CO2', 'A', 1),
+('Which part of the cell contains the genetic material?', 'Mitochondria', 'Nucleus', 'Ribosome', 'Golgi apparatus', 'B', 1),
+('What is the closest star to Earth?', 'Sirius', 'Proxima Centauri', 'Sun', 'Alpha Centauri', 'C', 1),
+('What is the atomic number of carbon?', '6', '12', '14', '8', 'A', 1),
+('What is the chemical element symbol for gold?', 'Ag', 'Au', 'Pb', 'Fe', 'B', 1),
+('What is the name of the largest moon of Saturn?', 'Titan', 'Europa', 'Ganymede', 'Io', 'A', 1),
+('What is the process by which plants lose water through their leaves?', 'Transpiration', 'Respiration', 'Evaporation', 'Photosynthesis', 'A', 1),
+('Which planet is known as the "Morning Star"?', 'Venus', 'Mars', 'Jupiter', 'Saturn', 'A', 1),
+('How many bones are in the adult human body?', '206', '210', '220', '205', 'A', 1),
+('What is the chemical symbol for Sodium?', 'S', 'Na', 'So', 'Sn', 'B', 1),
+('Which scientist developed the theory of evolution?', 'Isaac Newton', 'Charles Darwin', 'Albert Einstein', 'Nikola Tesla', 'B', 1),
+('What is the center of an atom called?', 'Electron', 'Proton', 'Neutron', 'Nucleus', 'D', 1),
+('Which gas do humans exhale during respiration?', 'Oxygen', 'Carbon Dioxide', 'Nitrogen', 'Hydrogen', 'B', 1);
+
 --INSERT INTO quiz (question, option_a, option_b, option_c, option_d, correct_option, categoryId) VALUES
 --('What is 12 ÷ 4?', '2', '3', '4', '6', 'B', 2),
 --('What is the square root of 49?', '5', '6', '7', '8', 'C', 2),

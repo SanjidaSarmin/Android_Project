@@ -62,12 +62,27 @@
         android:layout_marginTop="50dp"/>
 
     <!-- Close Button -->
-    <TextView
-        android:id="@+id/tvClose"
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="CLOSE"
-        android:textSize="18sp"
-        android:textColor="#263238"
-        android:layout_marginTop="40dp"/>
+        android:orientation="horizontal"
+        android:layout_marginTop="40dp">
+
+        <TextView
+            android:id="@+id/tvRestore"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="RESTORE"
+            android:textSize="18sp"
+            android:textColor="#263238"
+            android:layout_marginEnd="40dp"/>
+
+        <TextView
+            android:id="@+id/tvClose"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="CLOSE"
+            android:textSize="18sp"
+            android:textColor="#263238"/>
+    </LinearLayout>
 </LinearLayout>
