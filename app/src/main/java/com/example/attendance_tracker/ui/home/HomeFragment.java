@@ -15,6 +15,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.attendance_tracker.Category_list;
+import com.example.attendance_tracker.Hints;
 import com.example.attendance_tracker.Home;
 import com.example.attendance_tracker.Profile;
 import com.example.attendance_tracker.Quiz_List;
@@ -51,7 +52,7 @@ public class HomeFragment extends Fragment {
                     startActivity(new Intent(getActivity(), Home.class));
                     return true;
                 }else if (itemId == R.id.nav_search) {
-                    startActivity(new Intent(getActivity(), Quiz_List.class));
+                    startActivity(new Intent(getActivity(), Hints.class));
                     return true;
                 }else if (itemId == R.id.nav_add) {
                     startActivity(new Intent(getActivity(), Quiz_add.class));

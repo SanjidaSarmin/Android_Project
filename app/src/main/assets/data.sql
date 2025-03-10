@@ -25,32 +25,32 @@ CREATE TABLE IF NOT EXISTS quiz (
 
 -- Insert sample quiz data
 
-INSERT INTO quiz (question, option_a, option_b, option_c, option_d, correct_option, categoryId) VALUES
-('What is the chemical symbol for water?', 'O2', 'H2O', 'CO2', 'NaCl', 'B', 1),
-('What planet is known as the Red Planet?', 'Venus', 'Mars', 'Jupiter', 'Saturn', 'B', 1),
-('What gas do plants absorb from the atmosphere?', 'Oxygen', 'Carbon Dioxide', 'Nitrogen', 'Hydrogen', 'B', 1),
-('What is the largest organ in the human body?', 'Heart', 'Liver', 'Skin', 'Brain', 'C', 1),
-('What force keeps objects on the ground?', 'Magnetism', 'Gravity', 'Friction', 'Inertia', 'B', 1),
-('What is the powerhouse of the cell?', 'Ribosome', 'Mitochondria', 'Nucleus', 'Golgi Apparatus', 'B', 1),
-('What is the hardest natural substance on Earth?', 'Gold', 'Iron', 'Diamond', 'Quartz', 'C', 1),
-('Which element has the atomic number 1?', 'Hydrogen', 'Oxygen', 'Nitrogen', 'Helium', 'A', 1),
-('What is the process by which plants make their food?', 'Respiration', 'Photosynthesis', 'Fermentation', 'Digestion', 'B', 1),
-('Who developed the theory of relativity?', 'Isaac Newton', 'Albert Einstein', 'Galileo Galilei', 'Nikola Tesla', 'B', 1);
-('What is the most common element in the Earths crust?', 'Iron', 'Oxygen', 'Silicon', 'Aluminum', 'B', 1),
-('What type of animal is the largest living creature on Earth?', 'Shark', 'Elephant', 'Blue Whale', 'Giraffe', 'C', 1),
-('What is the chemical formula for methane?', 'CH4', 'C2H6', 'C3H8', 'CO2', 'A', 1),
-('Which part of the cell contains the genetic material?', 'Mitochondria', 'Nucleus', 'Ribosome', 'Golgi apparatus', 'B', 1),
-('What is the closest star to Earth?', 'Sirius', 'Proxima Centauri', 'Sun', 'Alpha Centauri', 'C', 1),
-('What is the atomic number of carbon?', '6', '12', '14', '8', 'A', 1),
-('What is the chemical element symbol for gold?', 'Ag', 'Au', 'Pb', 'Fe', 'B', 1),
-('What is the name of the largest moon of Saturn?', 'Titan', 'Europa', 'Ganymede', 'Io', 'A', 1),
-('What is the process by which plants lose water through their leaves?', 'Transpiration', 'Respiration', 'Evaporation', 'Photosynthesis', 'A', 1),
-('Which planet is known as the "Morning Star"?', 'Venus', 'Mars', 'Jupiter', 'Saturn', 'A', 1),
-('How many bones are in the adult human body?', '206', '210', '220', '205', 'A', 1),
-('What is the chemical symbol for Sodium?', 'S', 'Na', 'So', 'Sn', 'B', 1),
-('Which scientist developed the theory of evolution?', 'Isaac Newton', 'Charles Darwin', 'Albert Einstein', 'Nikola Tesla', 'B', 1),
-('What is the center of an atom called?', 'Electron', 'Proton', 'Neutron', 'Nucleus', 'D', 1),
-('Which gas do humans exhale during respiration?', 'Oxygen', 'Carbon Dioxide', 'Nitrogen', 'Hydrogen', 'B', 1);
+--INSERT INTO quiz (question, option_a, option_b, option_c, option_d, correct_option, categoryId) VALUES
+--('What is the chemical symbol for water?', 'O2', 'H2O', 'CO2', 'NaCl', 'B', 1),
+--('What planet is known as the Red Planet?', 'Venus', 'Mars', 'Jupiter', 'Saturn', 'B', 1),
+--('What gas do plants absorb from the atmosphere?', 'Oxygen', 'Carbon Dioxide', 'Nitrogen', 'Hydrogen', 'B', 1),
+--('What is the largest organ in the human body?', 'Heart', 'Liver', 'Skin', 'Brain', 'C', 1),
+--('What force keeps objects on the ground?', 'Magnetism', 'Gravity', 'Friction', 'Inertia', 'B', 1),
+--('What is the powerhouse of the cell?', 'Ribosome', 'Mitochondria', 'Nucleus', 'Golgi Apparatus', 'B', 1),
+--('What is the hardest natural substance on Earth?', 'Gold', 'Iron', 'Diamond', 'Quartz', 'C', 1),
+--('Which element has the atomic number 1?', 'Hydrogen', 'Oxygen', 'Nitrogen', 'Helium', 'A', 1),
+--('What is the process by which plants make their food?', 'Respiration', 'Photosynthesis', 'Fermentation', 'Digestion', 'B', 1),
+--('Who developed the theory of relativity?', 'Isaac Newton', 'Albert Einstein', 'Galileo Galilei', 'Nikola Tesla', 'B', 1),
+--('What is the most common element in the Earths crust?', 'Iron', 'Oxygen', 'Silicon', 'Aluminum', 'B', 1),
+--('What type of animal is the largest living creature on Earth?', 'Shark', 'Elephant', 'Blue Whale', 'Giraffe', 'C', 1),
+--('What is the chemical formula for methane?', 'CH4', 'C2H6', 'C3H8', 'CO2', 'A', 1),
+--('Which part of the cell contains the genetic material?', 'Mitochondria', 'Nucleus', 'Ribosome', 'Golgi apparatus', 'B', 1),
+--('What is the closest star to Earth?', 'Sirius', 'Proxima Centauri', 'Sun', 'Alpha Centauri', 'C', 1),
+--('What is the atomic number of carbon?', '6', '12', '14', '8', 'A', 1),
+--('What is the chemical element symbol for gold?', 'Ag', 'Au', 'Pb', 'Fe', 'B', 1),
+--('What is the name of the largest moon of Saturn?', 'Titan', 'Europa', 'Ganymede', 'Io', 'A', 1),
+--('What is the process by which plants lose water through their leaves?', 'Transpiration', 'Respiration', 'Evaporation', 'Photosynthesis', 'A', 1),
+--('Which planet is known as the "Morning Star"?', 'Venus', 'Mars', 'Jupiter', 'Saturn', 'A', 1),
+--('How many bones are in the adult human body?', '206', '210', '220', '205', 'A', 1),
+--('What is the chemical symbol for Sodium?', 'S', 'Na', 'So', 'Sn', 'B', 1),
+--('Which scientist developed the theory of evolution?', 'Isaac Newton', 'Charles Darwin', 'Albert Einstein', 'Nikola Tesla', 'B', 1),
+--('What is the center of an atom called?', 'Electron', 'Proton', 'Neutron', 'Nucleus', 'D', 1),
+--('Which gas do humans exhale during respiration?', 'Oxygen', 'Carbon Dioxide', 'Nitrogen', 'Hydrogen', 'B', 1);
 
 --INSERT INTO quiz (question, option_a, option_b, option_c, option_d, correct_option, categoryId) VALUES
 --('What is 12 ÷ 4?', '2', '3', '4', '6', 'B', 2),
@@ -62,7 +62,7 @@ INSERT INTO quiz (question, option_a, option_b, option_c, option_d, correct_opti
 --('What is 7 × 8?', '48', '54', '56', '64', 'C', 2),
 --('What is 144 ÷ 12?', '10', '12', '14', '16', 'B', 2),
 --('What is the value of π (Pi) rounded to two decimal places?', '3.12', '3.14', '3.16', '3.18', 'B', 2),
---('If a triangle has angles of 60° and 60°, what is the third angle?', '30°', '45°', '60°', '90°', 'A', 2);
+--('If a triangle has angles of 60° and 60°, what is the third angle?', '30°', '45°', '60°', '90°', 'A', 2),
 --('What is 25 × 4?', '100', '110', '120', '90', 'A', 2),
 --('What is the value of π (Pi) to two decimal places?', '3.12', '3.14', '3.16', '3.18', 'B', 2),
 --('What is the value of 3³?', '6', '9', '27', '81', 'C', 2),
@@ -78,7 +78,7 @@ INSERT INTO quiz (question, option_a, option_b, option_c, option_d, correct_opti
 --('What is the value of 10²?', '100', '200', '1000', '10', 'A', 2),
 --('What is the difference between 100 and 45?', '50', '55', '60', '65', 'B', 2),
 --('What is the area of a triangle with a base of 6 and height of 4?', '12', '24', '20', '18', 'A', 2);
---
+
 --INSERT INTO quiz (question, option_a, option_b, option_c, option_d, correct_option, categoryId) VALUES
 --('Who is known as the father of computers?', 'Alan Turing', 'Charles Babbage', 'Bill Gates', 'Steve Jobs', 'B', 3),
 --('What does CPU stand for?', 'Central Process Unit', 'Central Processing Unit', 'Computer Personal Unit', 'Central Peripheral Unit', 'B', 3),
@@ -89,7 +89,7 @@ INSERT INTO quiz (question, option_a, option_b, option_c, option_d, correct_opti
 --('Which of the following is an open-source operating system?', 'Windows', 'macOS', 'Linux', 'iOS', 'C', 3),
 --('What does AI stand for in technology?', 'Artificial Integration', 'Automated Intelligence', 'Artificial Intelligence', 'Advanced Internet', 'C', 3),
 --('Which company developed the first iPhone?', 'Samsung', 'Google', 'Microsoft', 'Apple', 'D', 3),
---('What is the full form of USB?', 'Universal System Bus', 'Universal Serial Bus', 'Unified Serial Bus', 'Universal Software Bus', 'B', 3);
+--('What is the full form of USB?', 'Universal System Bus', 'Universal Serial Bus', 'Unified Serial Bus', 'Universal Software Bus', 'B', 3),
 --('What does the abbreviation "RAM" stand for in computers?', 'Random Access Memory', 'Read Access Memory', 'Read Average Memory', 'Random Average Memory', 'A', 3),
 --('Who is the co-founder of Microsoft?', 'Bill Gates', 'Steve Jobs', 'Larry Page', 'Mark Zuckerberg', 'A', 3),
 --('What does the abbreviation "URL" stand for?', 'Uniform Resource Locator', 'Uniform Response Locator', 'Uniform Retrieval Locator', 'Universal Resource Locator', 'A', 3),
@@ -105,8 +105,8 @@ INSERT INTO quiz (question, option_a, option_b, option_c, option_d, correct_opti
 --('Which company created the first personal computer?', 'Apple', 'IBM', 'Microsoft', 'Compaq', 'B', 3),
 --('What is the main function of a router?', 'Connect devices to a network', 'Store data', 'Process data', 'Display data', 'A', 3),
 --('What does IoT stand for?', 'Internet of Technology', 'Internet of Things', 'Integrated Online Technology', 'Internet Online Technology', 'B', 3);
---
---
+
+
 --INSERT INTO quiz (question, option_a, option_b, option_c, option_d, correct_option, categoryId) VALUES
 --('How many players are there in a soccer team?', '9', '10', '11', '12', 'C', 4),
 --('Which country won the FIFA World Cup in 2018?', 'Germany', 'Brazil', 'France', 'Argentina', 'C', 4),
@@ -117,7 +117,7 @@ INSERT INTO quiz (question, option_a, option_b, option_c, option_d, correct_opti
 --('In which sport would you perform a slam dunk?', 'Baseball', 'Football', 'Basketball', 'Tennis', 'C', 4),
 --('Which Grand Slam tennis tournament is played on a grass court?', 'US Open', 'French Open', 'Australian Open', 'Wimbledon', 'D', 4),
 --('Which country is famous for cricket and has won multiple ICC Cricket World Cups?', 'England', 'India', 'South Africa', 'New Zealand', 'B', 4),
---('What is the maximum score a player can achieve with a single throw in darts?', '20', '50', '60', '100', 'C', 4);
+--('What is the maximum score a player can achieve with a single throw in darts?', '20', '50', '60', '100', 'C', 4),
 --('How long is a marathon?', '26.2 miles', '24.5 miles', '30 miles', '28 miles', 'A', 4),
 --('In which sport would you find the term "hat trick"?', 'Baseball', 'Soccer', 'Tennis', 'Cricket', 'B', 4),
 --('Who holds the record for the most Olympic gold medals?', 'Michael Phelps', 'Usain Bolt', 'Carl Lewis', 'Mark Spitz', 'A', 4),
@@ -133,8 +133,8 @@ INSERT INTO quiz (question, option_a, option_b, option_c, option_d, correct_opti
 --('What is the maximum score you can get in 10-pin bowling?', '300', '200', '100', '150', 'A', 4),
 --('In which sport is the Ryder Cup contested?', 'Golf', 'Tennis', 'Football', 'Basketball', 'A', 4),
 --('What is the national sport of Canada?', 'Hockey', 'Baseball', 'Football', 'Cricket', 'A', 4);
---
---
+
+
 --INSERT INTO quiz (question, option_a, option_b, option_c, option_d, correct_option, categoryId) VALUES
 --('What is the capital of Japan?', 'Beijing', 'Seoul', 'Tokyo', 'Bangkok', 'C', 5),
 --('Who wrote the play "Romeo and Juliet"?', 'William Wordsworth', 'William Shakespeare', 'Mark Twain', 'Jane Austen', 'B', 5),
@@ -145,7 +145,7 @@ INSERT INTO quiz (question, option_a, option_b, option_c, option_d, correct_opti
 --('How many continents are there on Earth?', '5', '6', '7', '8', 'C', 5),
 --('What is the hardest natural substance on Earth?', 'Iron', 'Gold', 'Diamond', 'Platinum', 'C', 5),
 --('Who invented the telephone?', 'Alexander Graham Bell', 'Thomas Edison', 'Nikola Tesla', 'Albert Einstein', 'A', 5),
---('Which planet is known as the "Morning Star" or "Evening Star"?', 'Mars', 'Jupiter', 'Venus', 'Saturn', 'C', 5);
+--('Which planet is known as the "Morning Star" or "Evening Star"?', 'Mars', 'Jupiter', 'Venus', 'Saturn', 'C', 5),
 --('Which country is known as the Land of the Rising Sun?', 'China', 'Japan', 'South Korea', 'India', 'B', 5),
 --('What is the capital of Canada?', 'Ottawa', 'Toronto', 'Vancouver', 'Montreal', 'A', 5),
 --('Who invented the telephone?', 'Nikola Tesla', 'Alexander Graham Bell', 'Thomas Edison', 'Albert Einstein', 'B', 5),
@@ -161,8 +161,8 @@ INSERT INTO quiz (question, option_a, option_b, option_c, option_d, correct_opti
 --('Who wrote the novel "1984"?', 'Aldous Huxley', 'J.K. Rowling', 'George Orwell', 'Mark Twain', 'C', 5),
 --('What is the longest river in the world?', 'Amazon River', 'Nile River', 'Yangtze River', 'Mississippi River', 'B', 5),
 --('Which country has the largest population in the world?', 'India', 'United States', 'China', 'Brazil', 'C', 5);
---
---
+
+
 --INSERT INTO quiz (question, option_a, option_b, option_c, option_d, correct_option, categoryId) VALUES
 --('Who painted the Mona Lisa?', 'Vincent van Gogh', 'Pablo Picasso', 'Leonardo da Vinci', 'Claude Monet', 'C', 6),
 --('Which famous artist is known for cutting off his own ear?', 'Leonardo da Vinci', 'Vincent van Gogh', 'Michelangelo', 'Salvador Dalí', 'B', 6),
@@ -173,7 +173,7 @@ INSERT INTO quiz (question, option_a, option_b, option_c, option_d, correct_opti
 --('Which artist is famous for his "Campbell\'s Soup Cans" artwork?', 'Andy Warhol', 'Jackson Pollock', 'Claude Monet', 'Henri Matisse', 'A', 6),
 --('What is the term for a painting made on wet plaster?', 'Acrylic', 'Fresco', 'Mosaic', 'Pastel', 'B', 6),
 --('Which of the following is a famous sculpture by Auguste Rodin?', 'The Thinker', 'The Kiss', 'Pieta', 'David', 'A', 6),
---('What is the technique of using tiny dots to create an image called?', 'Cubism', 'Pointillism', 'Surrealism', 'Realism', 'B', 6);
+--('What is the technique of using tiny dots to create an image called?', 'Cubism', 'Pointillism', 'Surrealism', 'Realism', 'B', 6),
 --('Who painted the famous artwork "The Starry Night"?', 'Pablo Picasso', 'Vincent van Gogh', 'Claude Monet', 'Leonardo da Vinci', 'B', 6),
 --('What is the name of the painting of a woman with a mysterious smile?', 'The Kiss', 'The Starry Night', 'Mona Lisa', 'The Scream', 'C', 6),
 --('Which artist is famous for his abstract works and use of primary colors?', 'Jackson Pollock', 'Pablo Picasso', 'Wassily Kandinsky', 'Piet Mondrian', 'D', 6),
@@ -189,7 +189,7 @@ INSERT INTO quiz (question, option_a, option_b, option_c, option_d, correct_opti
 --('Who painted the "Last Supper"?', 'Michelangelo', 'Vincent van Gogh', 'Leonardo da Vinci', 'Raphael', 'C', 6),
 --('Which art movement is associated with geometric shapes and abstract forms?', 'Expressionism', 'Cubism', 'Surrealism', 'Dadaism', 'B', 6),
 --('Which artist painted "The Girl with a Pearl Earring"?', 'Johannes Vermeer', 'Rembrandt', 'Claude Monet', 'Pablo Picasso', 'A', 6);
---
+
 
 
 

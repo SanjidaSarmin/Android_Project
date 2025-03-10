@@ -3,6 +3,7 @@ package com.example.attendance_tracker;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
@@ -15,11 +16,16 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class Hints extends AppCompatActivity {
 
+    TextView txt;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_hints);
+        txt = findViewById(R.id.close_button);
+        txt.setOnClickListener(v -> {
+            startActivity(new Intent(Hints.this, Home.class));
+        });
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigation);
 

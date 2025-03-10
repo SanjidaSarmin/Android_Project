@@ -43,7 +43,7 @@ public class Login extends AppCompatActivity {
         if (isLogin > 0) {
             Toast.makeText(Login.this, "Welcome back, " + username + "!", Toast.LENGTH_LONG).show();
             startActivity(new Intent(Login.this, Home.class));
-            finish();  // Close login activity
+            finish();
         }
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
@@ -77,7 +77,7 @@ public class Login extends AppCompatActivity {
     }
 
     private void loginUser(String email, String password, SharedPreferences sharedPreferences) {
-        // Simulated login check (replace with real authentication)
+
         if (email.equals("sanjida@gmail.com") && password.equals("pass123")) {
             Toast.makeText(Login.this, "Login Successful", Toast.LENGTH_SHORT).show();
 
@@ -88,7 +88,7 @@ public class Login extends AppCompatActivity {
             editor.apply();
 
             startActivity(new Intent(Login.this, Home.class));
-            finish();  // Close login activity
+            finish();
         } else {
             Toast.makeText(Login.this, "Invalid Credentials", Toast.LENGTH_SHORT).show();
         }

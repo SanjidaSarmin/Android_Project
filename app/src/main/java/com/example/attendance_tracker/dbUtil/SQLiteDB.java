@@ -100,35 +100,6 @@ public class SQLiteDB extends SQLiteOpenHelper {
         }
     }
 
-
-//    public void executeSQLFromFile(SQLiteDatabase db, String fileName, Context context) {
-//        try {
-//            // Open the SQL file from assets folder
-//            InputStream inputStream = context.getAssets().open("data.sql");
-//            BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
-//            StringBuilder sqlQuery = new StringBuilder();
-//            String line;
-//
-//            // Read the entire SQL file
-//            while ((line = reader.readLine()) != null) {
-//                sqlQuery.append(line).append("\n");
-//            }
-//            reader.close();
-//
-//            // Execute all queries from the file
-//            String[] queries = sqlQuery.toString().split(";");
-//            for (String query : queries) {
-//                if (query.trim().length() > 0) {
-//                    db.execSQL(query.trim());
-//                }
-//            }
-//        } catch (IOException e) {
-//            Log.e("SQLiteDB", "Error reading SQL file", e);
-//        }
-//    }
-
-
-    // Create - Insert Quiz
     public long insertQuiz(Quiz quiz) {
         SQLiteDatabase db = this.getWritableDatabase();
 
@@ -253,13 +224,22 @@ public class SQLiteDB extends SQLiteOpenHelper {
     }
 
     // Update - Update Category Name
-    public int updateCategory(int id, String newName) {
+    public void updateCategory(int categoryId, String newName) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
-        values.put("name", newName);
+        values.put("name", newName); // Ensure column name matches your database schema
 
-        return db.update("category", values, "id = ?", new String[]{String.valueOf(id)});
+        int rowsAffected = db.update("category", values, "id = ?", new String[]{String.valueOf(categoryId)});
+        db.close();
+
+        if (rowsAffected > 0) {
+            Log.d("DB_UPDATE", "Category updated successfully");
+        } else {
+            Log.e("DB_UPDATE", "Update failed: No rows affected");
+        }
     }
+
+
 
     // Delete - Delete Category
     public void deleteCategory(int id) {
@@ -291,18 +271,6 @@ public class SQLiteDB extends SQLiteOpenHelper {
         return quizList;
     }
 
-
-//    public void saveTotalScore(int score) {
-//        SQLiteDatabase db = this.getWritableDatabase();
-//        ContentValues values = new ContentValues();
-//        values.put("total_score", score);
-//
-//        // Check if a score entry exists, if not, insert; otherwise, update
-//        int updatedRows = db.update("score_table", values, null, null);
-//        if (updatedRows == 0) {
-//            db.insert("score_table", null, values);
-//        }
-//    }
 
 }
 
